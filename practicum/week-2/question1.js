@@ -6,5 +6,10 @@ For example given the input array [5, 6, 1], the running sum is
 */
 
 var runningSum = function(input) {
-   
+    var result = new Array(input.length);
+    result[0] = input[0];
+    for (let i = 1; i < input.length; i = i + 1){
+        result[i] = input[i] + result[i - 1];
+    }
+    return result;
 };
