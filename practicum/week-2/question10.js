@@ -8,5 +8,6 @@ output: 7 - 2 = 5
 */
 
 var maxMinusMin = function(n) {
-
+  let arr = Array.from(String(n), Number);
+  return Math.max(...arr) - Math.min(...arr); 
 };

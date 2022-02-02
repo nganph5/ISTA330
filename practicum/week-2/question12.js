@@ -41,6 +41,29 @@ for (let partition of allPartitions("aba")) {
   console.log(partition);
 }
 
-var maxBalanceNumber = function(input) {
+var isBalance = function(subStr){
+  let numA = 0, numB = 0;
+  for (let char of subStr){
+    if (char == 'a') {
+      numA += 1;
+    } 
+    if (char == 'b') {
+      numB += 1;
+    }
+  }
+  return numA == numB;
+}
 
+var maxBalanceNumber = function(input) {
+  let maxSum = 0, curSum = 0;
+  for (let partition of allPartitions(input)){
+    curSum = 0;
+    for (let subStr of partition){
+      if (isBalance(subStr)){
+        curSum += 1;
+      }
+    }
+    maxSum = Math.max(curSum, maxSum);
+  }
+  return maxSum;
 };

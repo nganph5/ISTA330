@@ -11,5 +11,12 @@ The letters in A are guaranteed distinct, and all characters in A and B are lett
 */
 
 var howManyCommon = function(A, B) {
+  let setA = new Set(A), res = 0;
+  for (let char of B){
+    if (setA.has(char)){
+      res += 1;
+    }
+  }
+  return res;
 
 };
