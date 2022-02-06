@@ -13,5 +13,17 @@ output: 3
 */
 
 var d_integer = function(input) {
-
+    let dict = {}
+    let curr_max = -1;
+    for(let i=0; i < input.length; i = i + 1) {
+        if (dict[input[i]]) {  
+            dict[input[i]] = dict[input[i]] +  1; 
+            if (dict[input[i]]  == input[i]){
+                curr_max = Math.max( input[i], curr_max);
+            }
+        } else {
+            dict[input[i]] = 1;
+        }
+    }
+    return curr_max;
 };
